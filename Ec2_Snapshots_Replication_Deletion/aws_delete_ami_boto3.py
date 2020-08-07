@@ -10,14 +10,14 @@ import boto3
 from dateutil.parser import parse
 import datetime
 age = 30
-aws_profile_name = 'prod'
+#aws_profile_name = 'prod'
 def days_old(date):
     get_date_obj = parse(date)
     date_obj = get_date_obj.replace(tzinfo=None)
     diff = datetime.datetime.now() - date_obj
     return diff.days
 
-boto3.setup_default_session(profile_name = aws_profile_name)
+#boto3.setup_default_session(profile_name = aws_profile_name)
 ec2 = boto3.client('ec2')
 amis = ec2.describe_images(Owners=[
         'self'
