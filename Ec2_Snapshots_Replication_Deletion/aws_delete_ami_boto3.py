@@ -3,7 +3,7 @@
 ###########3  Delete/Deregister 30 days old AMI in AWS using boto3 and python  #############
 
 ####### USE ON YOUR OWN RISK - THIS IS GOING TO DEREGISTER AMI OLDER THAN 30 DAYS #########
-#### Runtime Python 2.7 ####
+#### Runtime Python 3.6 ####
 
 
 import boto3
@@ -28,6 +28,6 @@ for ami in amis['Images']:
     # print ami['ImageId'], ami['CreationDate']
     day_old = days_old(create_date)
     if day_old > age:
-        print "deleting -> " + ami_id + " - create_date = " + create_date
+        print("deleting -> " + ami_id + " - create_date = " + create_date)
         # deregister the AMI
         ec2.deregister_image(ImageId=ami_id)
